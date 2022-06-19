@@ -200,7 +200,39 @@ int PrintAllPairsMain() {
 	return 0;
 }
 //-------------------------------------------------------------
+void PrintSubArrays(int arr[],int n ) {
+	//int sum
+	for (int i = 0; i < n; i++)
+	{
+		
+		for (int j = i; j < n; j++)
+		{
+			//cout << "(" << i << "," << j << "),";
+			for (int k = i; k <=j; k++)
+			{
+				cout << arr[k] << ",";
+				//sum = +arr[k];
+			}
+			cout << endl;
+			
+		}
+		
+		//cout << sum;
+		
+	}
 
+
+}
+int PrintSubArraysMain() {
+	//TimeComplexity->O(n*n*n) = n^3
+	int arr[] = { 10,20,30,40,50,60 };
+	int n = sizeof(arr) / sizeof(int);
+
+
+	PrintSubArrays(arr,n);
+
+	return 0;
+}
 //-------------------------------------------------------------
 int main(){
 	
@@ -208,7 +240,8 @@ int main(){
 	//LinearSearchMain();
 	//BinarySearchMain();
 	//ArrayReverseMain();
-	PrintAllPairsMain();
+	//PrintAllPairsMain();
+	PrintSubArraysMain();
 	return 0;
 }
 
