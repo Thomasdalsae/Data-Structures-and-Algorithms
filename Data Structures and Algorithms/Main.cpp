@@ -140,13 +140,75 @@ int BinarySearchMain() {
 	return 0;
 }
 //-------------------------------------------------------------
+void ReverseArray(int arr[], int n) {
+	int Start = 0;
+	int End = n - 1;
 
+	while (Start<End)
+	{
+		swap(arr[Start], arr[End]);
+		Start += 1;
+		End -= 1;
+	}
+	
+}
+int ArrayReverseMain() {
+	//This is used to reverse all the elements of a given array(This will change the array)(12345 ->54321)
+	//Time complexity N/2 = O(N)Time   space complexity would remain order of one.
+	int arr[] = { 10,20,30,45,60,80,90 };
+	//array got 7,each variable is 4 bit.7*4=28/4 =7
+	int n = sizeof(arr) / sizeof(int);
+	//printing output
+	
+	for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+	
+	ReverseArray(arr, n);
+
+	//printing output
+	for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+	return 0;
+}
+//-------------------------------------------------------------
+void PrintAllPairs(int arr[], int n) {
+
+	//print all the elements(2 snested loops)
+	for (int i = 0; i < n;i++) {
+		int x = arr[i];
+		//The +1 changes the use case, either all pairs or less for each loop
+		for (int j = i+1; j < n; j++){
+			int y = arr[j];
+			
+			cout << x << "," <<y<< endl;
+		}
+		cout << endl;
+	}
+}
+int PrintAllPairsMain() {
+	int arr[] = { 10,20,30,40,50,60};
+	int n = sizeof(arr) / sizeof(int);
+	
+	
+	PrintAllPairs(arr, n);
+	return 0;
+}
+//-------------------------------------------------------------
+
+//-------------------------------------------------------------
 int main(){
 	
 	//ArrayFunctionMain();
 	//LinearSearchMain();
-	BinarySearchMain();
-
+	//BinarySearchMain();
+	//ArrayReverseMain();
+	PrintAllPairsMain();
 	return 0;
 }
 
