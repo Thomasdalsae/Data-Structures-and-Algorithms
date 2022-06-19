@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="ArraysAndFunctions.cpp" />
     <ClCompile Include="LinearSearch.cpp" />
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h" />
