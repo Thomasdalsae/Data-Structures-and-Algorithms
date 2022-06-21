@@ -201,27 +201,22 @@ int PrintAllPairsMain() {
 }
 //-------------------------------------------------------------
 void PrintSubArrays(int arr[],int n ) {
-	//int sum
+	int sum{0};
+	
 	for (int i = 0; i < n; i++)
 	{
-		
 		for (int j = i; j < n; j++)
 		{
 			//cout << "(" << i << "," << j << "),";
 			for (int k = i; k <=j; k++)
 			{
 				cout << arr[k] << ",";
-				//sum = +arr[k];
+				sum += arr[k];
 			}
-			cout << endl;
-			
+			cout << "Subarray sum:" << sum << endl;
+			sum = 0;
 		}
-		
-		//cout << sum;
-		
 	}
-
-
 }
 int PrintSubArraysMain() {
 	//TimeComplexity->O(n*n*n) = n^3
