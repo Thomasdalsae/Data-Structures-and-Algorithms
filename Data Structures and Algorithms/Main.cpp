@@ -281,6 +281,37 @@ int PrintSubArrayMainOptimized()
 	return 0;
 }
 //-------------------------------------------------------------
+int MaximumSubArraySum(int arr[],int n){
+	int CurrentSum{0};
+	int LargestSum{0};
+	//goes over and adds all positive variables, if its negative it will turn Current variable it to zero.
+	//if current sum is larger than largest sum it will overwrite.
+	//Array      [-2,3,4,-1,5,-12]
+	//CurrentSum=[ 0,3,7, 6,11, 0]
+	//LargestSum=[ 0,3,7, 7,11,11]
+	for (int i =0;i<n;i++)
+	{
+		CurrentSum = CurrentSum + arr[i];
+		if (CurrentSum<0)
+		{
+			CurrentSum = 0;
+		}
+		LargestSum = max(LargestSum,CurrentSum);
+	}
+	return LargestSum;
+}
+int MaximumSubArraySumMain()
+{
+	//Kadane's algrithmn
+	//TimeComplexity O(N)
+	int arr[] = {-2,3,4,-1,5,-12,6,1,3};
+	int n = sizeof(arr) / sizeof(int);
+
+	cout << MaximumSubArraySum(arr,n);
+	return 0;
+}//BestSubArray Solution
+
+//-------------------------------------------------------------
 int main(){
 	
 	//ArrayFunctionMain();
@@ -289,7 +320,8 @@ int main(){
 	//ArrayReverseMain();
 	//PrintAllPairsMain();
 	//PrintSubArraysMain();
-	PrintSubArrayMainOptimized();
+	//PrintSubArrayMainOptimized();
+	MaximumSubArraySumMain();
 	return 0;
 }
 
