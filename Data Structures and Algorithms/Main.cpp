@@ -200,31 +200,83 @@ int PrintAllPairsMain() {
 	return 0;
 }
 //-------------------------------------------------------------
-void PrintSubArrays(int arr[],int n ) {
-	int sum{0};
-	
+int LargestSubArraySum(int arr[],int n ) {
+	int SubArraySum{0};
+	int LargestSubArraySum{0};
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = i; j < n; j++)
 		{
-			//cout << "(" << i << "," << j << "),";
+			//Reset
+			SubArraySum = 0;
 			for (int k = i; k <=j; k++)
 			{
-				cout << arr[k] << ",";
-				sum += arr[k];
+				//cout << arr[k] << ",";
+				SubArraySum += arr[k];
+					//Checking if SybArraySum is larger than LargestSubArraySum. if so,replace
+					//IF method
+				// if (SubArraySum > LargestSubArraySum)
+				// {
+				// 	LargestSubArraySum = SubArraySum;
+				// }
+				
+				//Shorter method
+				LargestSubArraySum = max(SubArraySum,LargestSubArraySum); 
 			}
-			cout << "Subarray sum:" << sum << endl;
-			sum = 0;
+			//cout << "Subarray sum:" << SubArraySum << endl;
+			
 		}
 	}
+	//can cout it within the function,but better to return to main and then cout
+	//cout <<"Largest SubArray was :"<< LargestSubArraySum;
+	return LargestSubArraySum;
 }
 int PrintSubArraysMain() {
-	//TimeComplexity->O(n*n*n) = n^3
-	int arr[] = { 10,20,30,40,50,60 };
-	int n = sizeof(arr) / sizeof(int);
+	//THIS IS BRUTE FORCE SOLUTION <--TimeComplexity->O(n*n*n) = n^3
+	int arrN[] = {-2,3,4,-1,5,-12,6,1,3};
+	int n = sizeof(arrN) / sizeof(int);
+
+	//This sends inn information to a function that will return the result. the function do a operation to find the largest sum in the subArray.
+	cout <<LargestSubArraySum(arrN,n);
+
+	return 0;
+}
+//-------------------------------------------------------------
+int LargestSubArraySumOptimized(int arr[],int n)
+{
+	//Prefix Sums
+	//100 should be changed with a vector or a dynamic,is currently a constant.
+	int prefix[100] = {0};
+	prefix[0] = arr[0];
+	for (int i=1;i<n;i++)
+	{
+		prefix[i] = prefix [i-1] + arr[i];
+	}
 
 
-	PrintSubArrays(arr,n);
+	//largest sum login
+	int LargestSubArraySum{0};
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = i; j < n; j++)
+		{
+			//since I starts at 0 it will be a nullpointer, we can only use the i-1 when i is bigger than 0.
+			//  : is used if the condition(i>0) is not met.
+			int SubArraySum = i>0 ? prefix[j] - prefix[i-1] : prefix[j];
+			//put a check is SubArraySum > largestSubArraySum
+			LargestSubArraySum = max(SubArraySum,LargestSubArraySum); 
+			
+		}
+	}
+	return LargestSubArraySum;
+}
+int PrintSubArrayMainOptimized()
+{	//Prefix Sum Approach 0(0^2)
+	int arrN[] = {-2,3,4,-1,5,-12,6,1,3};
+	int n = sizeof(arrN) / sizeof(int);
+
+	//This sends inn information to a function that will return the result. the function do a operation to find the largest sum in the subArray.
+	cout <<LargestSubArraySumOptimized(arrN,n);
 
 	return 0;
 }
@@ -236,7 +288,8 @@ int main(){
 	//BinarySearchMain();
 	//ArrayReverseMain();
 	//PrintAllPairsMain();
-	PrintSubArraysMain();
+	//PrintSubArraysMain();
+	PrintSubArrayMainOptimized();
 	return 0;
 }
 
