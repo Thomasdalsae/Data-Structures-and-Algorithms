@@ -1,4 +1,4 @@
-#include"Header.h";
+#include"Header.h"
 
 //-------------------------------------------------------------
 void Wrongprintarray(int arr[]) {
@@ -310,8 +310,32 @@ int MaximumSubArraySumMain()
 	cout << MaximumSubArraySum(arr,n);
 	return 0;
 }//BestSubArray Solution
-
 //-------------------------------------------------------------
+
+//CODING EXERCISES
+int LargestElement(vector<int>arr)
+{
+	int CurrentNumber{0};
+	int LargestNumber{0};
+	for (int i = 0;i<arr.size();i++)
+	{
+		CurrentNumber =  arr[i];
+		LargestNumber = max(CurrentNumber,LargestNumber);
+	}
+
+	return LargestNumber;
+}
+int largestElementMain()
+{
+	vector<int> arr1 = {-3,4,1,2,3};
+	vector<int> arr2 = {-1-2-3-3,8};
+	cout <<LargestElement(arr1)<<endl;
+	cout <<LargestElement(arr2)<<endl;
+
+	return 0 ;
+}
+
+
 int main(){
 	
 	//ArrayFunctionMain();
@@ -321,7 +345,8 @@ int main(){
 	//PrintAllPairsMain();
 	//PrintSubArraysMain();
 	//PrintSubArrayMainOptimized();
-	MaximumSubArraySumMain();
+	//MaximumSubArraySumMain();
+	largestElementMain();
 	return 0;
 }
 
