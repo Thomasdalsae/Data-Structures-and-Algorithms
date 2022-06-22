@@ -312,8 +312,8 @@ int MaximumSubArraySumMain()
 }//BestSubArray Solution
 //-------------------------------------------------------------
 
-//CODING EXERCISES
-int LargestElement(vector<int>arr)
+//CODING EXERCISES E=exercise<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+int LargestElementE(vector<int>arr)
 {
 	int CurrentNumber{0};
 	int LargestNumber{0};
@@ -325,16 +325,77 @@ int LargestElement(vector<int>arr)
 
 	return LargestNumber;
 }
-int largestElementMain()
+int largestElementMainE()
 {
 	vector<int> arr1 = {-3,4,1,2,3};
 	vector<int> arr2 = {-1-2-3-3,8};
-	cout <<LargestElement(arr1)<<endl;
-	cout <<LargestElement(arr2)<<endl;
+	cout <<LargestElementE(arr1)<<endl;
+	cout <<LargestElementE(arr2)<<endl;
 
 	return 0 ;
 }
+//-------------------------------------------------------------
+int MaximumSubarraySumE(vector<int>arr)
+{
+	int CurrentSum{0};
+	int LargestSum{0};
+	for (int i = 0;i<arr.size();i++)
+	{
+			CurrentSum =  CurrentSum + arr[i];
+		if (CurrentSum <0)
+		{
+			CurrentSum = 0;
+		}
+			LargestSum = max(LargestSum,CurrentSum);
+		
+	}
 
+	return LargestSum;
+}
+int MaximumSubarraySumMainE()
+{
+	vector<int> arr1 = {1,-2,3,4,4,-2};
+	vector<int> arr2 = {5,0,-1,0,1,2,-1};
+	cout <<MaximumSubarraySumE(arr1)<<endl;
+	cout <<MaximumSubarraySumE(arr2)<<endl;
+
+	return 0 ;
+}
+//-------------------------------------------------------------
+int LowerBoundE(vector<int>arr,int Val)
+{
+	for (int i = 0; i < Val;i++)
+	{
+		vector<int>::iterator itr = lower_bound(arr.begin(),arr.end(),Val);
+
+		if (Val == *itr)
+		{
+			cout << "yes" <<(itr - arr.begin())<< endl;	
+		}
+		else
+		{
+			cout << "no" <<(itr - arr.begin()) << endl;			
+		}
+
+
+
+		
+		
+	}
+	
+	
+	return 0;
+}
+int LowerBoundMainE()
+{
+	vector<int> arr1 ={-1,-1,2,3,5};
+	vector<int> arr2 ={1,2,3,4,6};
+	int Val = 4;
+
+	 LowerBoundE(arr1,Val);
+	// LowerBoundE(arr2,Val);
+	return 0;
+}
 
 int main(){
 	
@@ -345,8 +406,13 @@ int main(){
 	//PrintAllPairsMain();
 	//PrintSubArraysMain();
 	//PrintSubArrayMainOptimized();
+
+
+	//CODING EXERCISES E=exercise--------
 	//MaximumSubArraySumMain();
-	largestElementMain();
+	//largestElementMainE();
+	//MaximumSubarraySumMainE();
+	LowerBoundMainE();
 	return 0;
 }
 
