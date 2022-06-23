@@ -112,7 +112,7 @@ int BinarySearch(int arr[], int n, int key) {
 		{
 			Start = mid + 1;
 		}
-	}
+	} 
 
 	return -1;
 
@@ -392,10 +392,54 @@ int LowerBoundMainE()
 	vector<int> arr2 ={1,2,3,4,6};
 	int Val = 4;
 
+	
 	 LowerBoundE(arr1,Val);
 	// LowerBoundE(arr2,Val);
 	return 0;
 }
+//-------------------------------------------------------------
+void SortedPairSumE(vector<int> arr,int x)
+{
+	int PairLeft{0};
+	int PairRight{0};
+
+	int LeftIndex{0};
+	int RightIndex = arr.size()-1;
+	int Diff = INT_MAX;
+
+	while (RightIndex>LeftIndex)
+	{
+		if (abs(arr[LeftIndex] + arr[RightIndex] - x) < Diff)
+		{
+			PairLeft = LeftIndex;
+			PairRight = RightIndex;
+			Diff = abs(arr[LeftIndex] + arr[RightIndex] - x);
+		}
+
+		if (arr[LeftIndex] + arr[RightIndex] > x)
+		{
+			RightIndex--;
+		}
+		else
+		{
+			LeftIndex++;
+		}
+	}
+cout << "The closest pair is " << arr[PairLeft] << " and " << arr[PairRight];
+	
+}
+int SortedPairSumMainE()
+{
+	vector<int> arr ={10,22,28,29,30,40};
+	int x = 54;
+
+
+	SortedPairSumE(arr,x);
+	
+	return 0;
+}
+//TakeTwo
+
 
 int main(){
 	
@@ -412,7 +456,9 @@ int main(){
 	//MaximumSubArraySumMain();
 	//largestElementMainE();
 	//MaximumSubarraySumMainE();
-	LowerBoundMainE();
+	//LowerBoundMainE();
+	SortedPairSumMainE();
 	return 0;
 }
+
 
