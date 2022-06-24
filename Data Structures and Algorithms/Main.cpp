@@ -438,7 +438,66 @@ int SortedPairSumMainE()
 	
 	return 0;
 }
-//TakeTwo
+
+void KRotationE(vector<int>arr,int x)
+{
+	int lastPos = arr.size() - 1;
+	
+	
+
+	
+	for (int i = 0;i < x;i++)
+	{
+		for (int j = 0;j < arr.size();j++)
+		{
+			
+			int FirstNumber = arr[j];
+			int k = j;
+			int p = j+1;
+			
+			if (k == lastPos)
+			{
+				arr[k] = arr[k-1];
+				k = 0;
+				arr[k] = FirstNumber;
+				break;
+			}
+			if (k < lastPos)
+			{
+				k++;
+				int SecondNumber = arr[k];
+				arr[k] = FirstNumber;
+				arr[p] = SecondNumber;
+				
+				
+				
+				
+			}
+			
+				cout <<arr[j] << " ";
+		}
+		cout << endl;
+	}
+
+	for (int i = 0;i < arr.size();i++)
+	{
+
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+}
+int KRotationMainE()
+{
+
+
+	vector<int> arr ={1,3,5,7,9};
+	int x = 1;
+
+
+	KRotationE(arr,x);
+	
+	return 0;
+}
 
 
 int main(){
@@ -457,7 +516,8 @@ int main(){
 	//largestElementMainE();
 	//MaximumSubarraySumMainE();
 	//LowerBoundMainE();
-	SortedPairSumMainE();
+	//SortedPairSumMainE();
+	KRotationMainE();
 	return 0;
 }
 
