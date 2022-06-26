@@ -1,3 +1,5 @@
+#include <complex.h>
+
 #include"Header.h"
 
 //-------------------------------------------------------------
@@ -311,6 +313,61 @@ int MaximumSubArraySumMain()
 	return 0;
 }//BestSubArray Solution
 //-------------------------------------------------------------
+int BubbleSort(vector<int>arr,int x)
+{
+for (int i = 0;i < arr.size();i++)
+{
+	for (int i = 0;i < arr.size()-1;i++)
+	{
+		int firstNumber = arr[i];
+		int secondnumber = arr[i+1];
+		if (arr[i] > arr[i+1])
+			
+		{
+			arr[i+1] = firstNumber;
+			arr[i] = secondnumber;
+			for (int j = 0;j < arr.size();j++)
+			{
+				cout << arr[j] << " ";
+			}
+			cout << endl;
+		}
+	}
+}
+	return 0;
+}
+
+int BubbleSortMain()
+{
+	vector<int> arr ={10,7,3,4,9,5,11,8,6,1};
+	int x = 2;
+	BubbleSort(arr,x);
+	
+	return 0;
+	
+}
+
+int main(){
+	
+	//ArrayFunctionMain();
+	//LinearSearchMain();
+	//BinarySearchMain();
+	//ArrayReverseMain();
+	//PrintAllPairsMain();
+	//PrintSubArraysMain();
+	//PrintSubArrayMainOptimized();
+	BubbleSortMain();
+
+	//CODING EXERCISES E=exercise--------
+	//MaximumSubArraySumMain();
+	//largestElementMainE();
+	//MaximumSubarraySumMainE();
+	//LowerBoundMainE();
+	//SortedPairSumMainE();
+	//KRotationMainE();
+	return 0;
+}
+
 
 //CODING EXERCISES E=exercise<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 int LargestElementE(vector<int>arr)
@@ -438,7 +495,7 @@ int SortedPairSumMainE()
 	
 	return 0;
 }
-
+//-------------------------------------------------------------
 void KRotationE(vector<int>arr,int x)
 {
 	for (int k = 0;k < x;k++)
@@ -451,53 +508,22 @@ void KRotationE(vector<int>arr,int x)
 		
 		int last = arr.size() - 1;
 		int lastNumber = arr[last];
-		
+		//It's much easier to rotate clockwise when you start at the end and goes towards 0
 		for (int i = arr.size()-2; i >= 0; i--)
 			{
+			
 				arr[i+1] = arr[i];
+			
 			}
 		arr[0] = lastNumber;
 	}
 }
-
-
-
-
 int KRotationMainE()
 {
-
-
 	vector<int> arr ={1,3,5,7,9};
 	int x = 2;
-
-
 	  KRotationE(arr,x);
-
-
 	
 	return 0;
 }
-
-
-int main(){
-	
-	//ArrayFunctionMain();
-	//LinearSearchMain();
-	//BinarySearchMain();
-	//ArrayReverseMain();
-	//PrintAllPairsMain();
-	//PrintSubArraysMain();
-	//PrintSubArrayMainOptimized();
-
-
-	//CODING EXERCISES E=exercise--------
-	//MaximumSubArraySumMain();
-	//largestElementMainE();
-	//MaximumSubarraySumMainE();
-	//LowerBoundMainE();
-	//SortedPairSumMainE();
-	KRotationMainE();
-	return 0;
-}
-
-
+//-------------------------------------------------------------
