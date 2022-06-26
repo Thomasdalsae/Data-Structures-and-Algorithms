@@ -441,60 +441,39 @@ int SortedPairSumMainE()
 
 void KRotationE(vector<int>arr,int x)
 {
-	int lastPos = arr.size() - 1;
-	
-	
-
-	
-	for (int i = 0;i < x;i++)
+	for (int k = 0;k < x;k++)
 	{
-		for (int j = 0;j < arr.size();j++)
+		for (int i = 0;i < arr.size();i++)
 		{
-			
-			int FirstNumber = arr[j];
-			int k = j;
-			int p = j+1;
-			
-			if (k == lastPos)
-			{
-				arr[k] = arr[k-1];
-				k = 0;
-				arr[k] = FirstNumber;
-				break;
-			}
-			if (k < lastPos)
-			{
-				k++;
-				int SecondNumber = arr[k];
-				arr[k] = FirstNumber;
-				arr[p] = SecondNumber;
-				
-				
-				
-				
-			}
-			
-				cout <<arr[j] << " ";
+			cout << arr[i];
 		}
 		cout << endl;
+		
+		int last = arr.size() - 1;
+		int lastNumber = arr[last];
+		
+		for (int i = arr.size()-2; i >= 0; i--)
+			{
+				arr[i+1] = arr[i];
+			}
+		arr[0] = lastNumber;
 	}
-
-	for (int i = 0;i < arr.size();i++)
-	{
-
-		cout << arr[i] << " ";
-	}
-	cout << endl;
 }
+
+
+
+
 int KRotationMainE()
 {
 
 
 	vector<int> arr ={1,3,5,7,9};
-	int x = 1;
+	int x = 2;
 
 
-	KRotationE(arr,x);
+	  KRotationE(arr,x);
+
+
 	
 	return 0;
 }
