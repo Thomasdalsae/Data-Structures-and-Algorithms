@@ -315,33 +315,39 @@ int MaximumSubArraySumMain()
 //-------------------------------------------------------------
 int BubbleSort(vector<int>arr,int x)
 {
-for (int i = 0;i < arr.size();i++)
+for (int i = 1;i <= arr.size()-1;i++)
 {
-	for (int i = 0;i < arr.size()-1;i++)
+	for (int j = 0;j <= arr.size()-i-1;j++)
 	{
-		int firstNumber = arr[i];
-		int secondnumber = arr[i+1];
-		if (arr[i] > arr[i+1])
-			
+		if (arr[j] > arr[j+1])
 		{
-			arr[i+1] = firstNumber;
-			arr[i] = secondnumber;
-			for (int j = 0;j < arr.size();j++)
+			swap(arr[j+1],arr[j]);
+			for (int k = 0;k < arr.size();k++)
 			{
-				cout << arr[j] << " ";
+				cout << arr[k] << " ";
 			}
 			cout << endl;
 		}
+		
 	}
+	
 }
 	return 0;
 }
 
 int BubbleSortMain()
 {
-	vector<int> arr ={10,7,3,4,9,5,11,8,6,1};
+	vector<int> arr ={-2,3,4,-1,5,-12,6,1,3};
 	int x = 2;
+
+	for (int j = 0;j < arr.size();j++)
+	{
+		cout << arr[j] << " ";
+	}
+	cout << endl;
 	BubbleSort(arr,x);
+
+
 	
 	return 0;
 	
