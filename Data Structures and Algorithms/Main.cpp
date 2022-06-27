@@ -301,7 +301,6 @@ int PrintSubArrayMainOptimized()
 
     return 0;
 }
-
 //-------------------------------------------------------------
 int MaximumSubArraySum(int arr[], int n)
 {
@@ -323,7 +322,6 @@ int MaximumSubArraySum(int arr[], int n)
     }
     return LargestSum;
 }
-
 int MaximumSubArraySumMain()
 {
     //Kadane's algrithmn
@@ -374,11 +372,10 @@ int BubbleSort(vector<int> arr,int TimeSwapped)
     return (TimeSwapped);
     
 }
-
 int BubbleSortMain()
 {
     int TimesSwapped{};
-    int Timesarr2Swapped;
+    
    // int TimeChecked{};
     vector<int> arr = {-2, 3, 4, -1, 5, -12, 6, 1, 3};
    // vector<int> arr2 = {9, 7, 5, 3, 1};
@@ -404,10 +401,68 @@ int BubbleSortMain()
     
     return 0;
 }
-
 //-------------------------------------------------------------
+void insertionSort(vector<int> &arr)
+{
+    for (int i =1;i<=arr.size()-1;i++)
+    {
+        int current =arr[i];
+        int prev = i-1;
+        while (prev>=0 && arr[prev] > current)
+        {
+            arr[prev+1] = arr[prev];
+            prev=prev-1;
+        }
+       arr[prev+1] = current;
+        
+    }
+  
+}
+int insertSortMain()
+{
+vector<int> arr = {-2,3,4,-1,5,-12,6,1,3};
+    insertionSort(arr);
+   
+for (int j = 0;j<arr.size();j++)
+{
+    cout << arr[j] << " ";
+}
+    
+   return 0; 
+}
+//-------------------------------------------------------------
+void selectionSort(vector<int> &arr)
+{
+    int CurrentMin{};
+    int lastSpot = arr.size() -1;
 
+    for (int i = 0 ;i<arr.size();i++)
+    {
+        for (int j = 0;j<arr.size();j++)
+        {
+         CurrentMin = min(arr[lastSpot],arr[j]);
+         arr[i] = CurrentMin;
+            
+        }
+        cout << CurrentMin << " ";
+    }
+    cout << endl;
 
+    
+}
+int selectionSortMain()
+{
+    vector<int> arr = {3,2,1,5,4};
+    selectionSort(arr);
+   
+    for (int j = 0;j<arr.size();j++)
+    {
+        cout << arr[j] << " ";
+    }
+    
+
+    return 0;
+}
 int main()
 {
     //ArrayFunctionMain();
@@ -417,8 +472,12 @@ int main()
     //PrintAllPairsMain();
     //PrintSubArraysMain();
     //PrintSubArrayMainOptimized();
-    BubbleSortMain();
+    //BubbleSortMain();
+    //insertSortMain();
+    selectionSortMain();
 
+
+    
     //CODING EXERCISES E=exercise--------
     //MaximumSubArraySumMain();
     //largestElementMainE();
