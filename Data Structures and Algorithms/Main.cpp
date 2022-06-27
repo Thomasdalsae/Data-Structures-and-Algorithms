@@ -335,104 +335,78 @@ int MaximumSubArraySumMain()
     return 0;
 } //BestSubArray Solution
 //-------------------------------------------------------------
-int BubbleSort(vector<int> arr)
+int BubbleSort(vector<int> arr,int TimeSwapped)
 {
     //sort the elements in an increasing order
     for (int i = 1; i <= arr.size() - 1; i++)
     {
+        int swapped = 0;
         //Repeated swapping, {5-3-2} - 5->3 - {3,5,2} - 5->2 - {3-2-5} - 3->2 - {2,3,5}
         //With adding -i-1 we decrease the amount times it need to go over.
         for (int j = 0; j <= arr.size() - i - 1; j++)
         {
             if (arr[j] > arr[j + 1])
             {
+                
                 swap(arr[j + 1], arr[j]);
-                for (int k = 0; k < arr.size(); k++)
-                {
-                    cout << arr[k] << " ";
-                }
-                cout << endl;
+                swapped = 1;
+                // for (int k = 0; k < arr.size(); k++)
+                // {
+                //     cout << arr[k] << " ";
+                // }
+                // cout << endl;
+                
+             TimeSwapped++;
             }
+            //TimeChecked++;
         }
+        if (swapped == 0)
+            break;
+        
     }
-    return 0;
+    for (int k = 0; k < arr.size(); k++)
+    {
+        cout << arr[k] << " ";
+    }
+    cout << endl;
+    //cout<< TimeSwapped << endl;
+    //cout <<TimeChecked << endl;
+    return (TimeSwapped);
+    
 }
 
 int BubbleSortMain()
 {
+    int TimesSwapped{};
+    int Timesarr2Swapped;
+   // int TimeChecked{};
     vector<int> arr = {-2, 3, 4, -1, 5, -12, 6, 1, 3};
-
-
+   // vector<int> arr2 = {9, 7, 5, 3, 1};
+    vector<int> arr2 = {1, 3, 5, 7, 9};
     for (int j = 0; j < arr.size(); j++)
     {
-        cout << arr[j] << " ";
+        cout << arr[j] << " " ;
     }
     cout << endl;
-    BubbleSort(arr);
+   TimesSwapped = BubbleSort(arr,TimesSwapped);
+    cout <<"How many Swaps arr needed :" << TimesSwapped << endl;
+   // cout <<"How many Checks arr used :" << TimeChecked << endl;
 
-
+    for (int n = 0; n < arr2.size(); n++)
+    {
+        cout << arr2[n] << " " ;
+    }
+    cout << endl;
+   TimesSwapped =0;
+   TimesSwapped = BubbleSort(arr2,TimesSwapped);
+    cout <<"How many operation arr2 needed :" << TimesSwapped << endl;
+    
+    
     return 0;
 }
 
 //-------------------------------------------------------------
-int BubbleSortOptimized(vector<int> arr)
-{
-    
-    //sort the elements in an increasing order
-    for (int i = 1; i <= arr.size() - 1; i++)
-    {
-        //Repeated swapping, {5-3-2} - 5->3 - {3,5,2} - 5->2 - {3-2-5} - 3->2 - {2,3,5}
-        //With adding -i-1 we decrease the amount times it need to go over.
-        for (int j = 0; j <= arr.size() - i - 1; j++)
-        {
-            int n{1};
-                for (int p = 0; p < arr.size() -i -1; p++)
-                {
-                   
-                    if (arr[p] > arr[j + n])
-                    {
-                   n++;
-                    }
-                    else
-                    {
-                        break;
-                        
-                    }
-                   
-                }
-            swap(arr[j], arr[j +n + 2]); 
-            for (int k = 0; k < arr.size(); k++)
-            {
-                cout << arr[k] << " ";  
-            }
-            cout << endl;
-            
-        }
-    }
-    return 0;
-}
 
-int BubbleSortoptimizedMain()
-{
-   // vector<int> arr = {1, 3, 5, 7, 9};
-    vector<int> arr2 = {15, 7, 5, -6, 3, 9, 1};
-    //
-    // for (int j = 0; j < arr.size(); j++)
-    // {
-    //     cout << arr[j] << " ";
-    // }
-    // cout << endl;
-    for (int j = 0; j < arr2.size(); j++)
-    {
-        cout << arr2[j] << " ";
-    }
-    cout << endl;
-    // BubbleSortOptimized(arr);
-    BubbleSortOptimized(arr2);
-
-
-    return 0;
-}
 
 int main()
 {
@@ -443,8 +417,7 @@ int main()
     //PrintAllPairsMain();
     //PrintSubArraysMain();
     //PrintSubArrayMainOptimized();
-    //BubbleSortMain();
-    BubbleSortoptimizedMain();
+    BubbleSortMain();
 
     //CODING EXERCISES E=exercise--------
     //MaximumSubArraySumMain();
