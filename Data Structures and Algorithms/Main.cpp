@@ -67,7 +67,6 @@ int LinearSearch(int arr[], int n, int key)
     //out of the loop
     return -1;
 }
-
 int LinearSearchMain()
 {
     //Searching algorithm to find the index of element in a given array
@@ -122,7 +121,6 @@ int BinarySearch(int arr[], int n, int key)
 
     return -1;
 }
-
 int BinarySearchMain()
 {
     //Efficient searching algorithm to find the index of element in a given sorted array.
@@ -147,7 +145,6 @@ int BinarySearchMain()
 
     return 0;
 }
-
 //-------------------------------------------------------------
 void ReverseArray(int arr[], int n)
 {
@@ -248,7 +245,6 @@ int LargestSubArraySum(int arr[], int n)
     //cout <<"Largest SubArray was :"<< LargestSubArraySum;
     return LargestSubArraySum;
 }
-
 int PrintSubArraysMain()
 {
     //THIS IS BRUTE FORCE SOLUTION <--TimeComplexity->O(n*n*n) = n^3
