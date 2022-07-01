@@ -329,6 +329,12 @@ int MaximumSubArraySumMain()
     return 0;
 } //BestSubArray Solution
 //-------------------------------------------------------------
+bool CompareBubbleSort(int a, int b)
+{
+    //Here i can decided  > if i want it inn a deacreasing order or < increasing order;
+  
+    return a > b;
+}
 int BubbleSort(vector<int> arr,int TimeSwapped)
 {
     //sort the elements in an increasing order
@@ -339,7 +345,8 @@ int BubbleSort(vector<int> arr,int TimeSwapped)
         //With adding -i-1 we decrease the amount times it need to go over.
         for (int j = 0; j <= arr.size() - i - 1; j++)
         {
-            if (arr[j] > arr[j + 1])
+            // if (arr[j] > arr[j + 1])
+            if (CompareBubbleSort(arr[j],arr[j + 1]))
             {
                 
                 swap(arr[j + 1], arr[j]);
@@ -392,7 +399,7 @@ int BubbleSortMain()
     cout << endl;
    TimesSwapped =0;
    TimesSwapped = BubbleSort(arr2,TimesSwapped);
-    cout <<"How many operation arr2 needed :" << TimesSwapped << endl;
+    cout <<"How many Swaps arr needed :" << TimesSwapped << endl;
     
     
     return 0;
@@ -427,28 +434,34 @@ for (int j = 0;j<arr.size();j++)
    return 0; 
 }
 //-------------------------------------------------------------
+//Sort the elements in increasing order
 void selectionSort(vector<int> &arr)
 {
-    int CurrentMin{};
-    int lastSpot = arr.size() -1;
-
-    for (int i = 0 ;i<arr.size();i++)
+    
+    for (int i = 0;i<=arr.size()-2;i++)
     {
-        for (int j = 0;j<arr.size();j++)
+        int current = arr[i];
+        int currentMin = i;
+
+        //Find the minimal element
+        for (int j=i;j < arr.size();j++)
         {
-         CurrentMin = min(arr[lastSpot],arr[j]);
-         arr[i] = CurrentMin;
-            
+            if (arr[j] < arr[currentMin])
+            {
+                currentMin = j;
+            }
         }
-        cout << CurrentMin << " ";
+        //swap outside the loop
+        swap(arr[currentMin],arr[i]);  
+        
     }
-    cout << endl;
 
     
 }
 int selectionSortMain()
 {
-    vector<int> arr = {3,2,1,5,4};
+    //TimeComplexity: N-1
+    vector<int> arr = {-2,3,4,-1,5,-12,6,1,3};
     selectionSort(arr);
    
     for (int j = 0;j<arr.size();j++)
@@ -459,30 +472,109 @@ int selectionSortMain()
 
     return 0;
 }
-int main()
+//-------------------------------------------------------------
+//Sort,Comparerator,reverse and greater<int>()
+bool Compare(int a, int b)
 {
-    //ArrayFunctionMain();
-    //LinearSearchMain();
-    //BinarySearchMain();
-    //ArrayReverseMain();
-    //PrintAllPairsMain();
-    //PrintSubArraysMain();
-    //PrintSubArrayMainOptimized();
-    //BubbleSortMain();
-    //insertSortMain();
-    selectionSortMain();
+//Here i can decided  > if i want it inn a deacreasing order or < increasing order;
+    //this can be used in other algorithms aswell.
+   // cout<< "Comparing "<<a<<" and " << b << endl;
+    return a < b;
+}
+int InbuiltSortAndComparatorsMain()
+{
+    //array
+    cout << "Array sort" << endl;
+    int arr[] = {10,9,8,6,5,4,3,2,11,16,8};
+    int n = sizeof(arr)/sizeof(int);
 
-
+    //The Compare in the sort function under is NOT a function call, it is passing the compare function as a
+    //Paramterer to another function. This compare function is called multipletimes
     
-    //CODING EXERCISES E=exercise--------
-    //MaximumSubArraySumMain();
-    //largestElementMainE();
-    //MaximumSubarraySumMainE();
-    //LowerBoundMainE();
-    //SortedPairSumMainE();
-    //KRotationMainE();
+    sort(arr,arr+n,Compare);
+    for (int x :arr)
+    {
+        cout << x << " "; 
+    }
+    cout << endl;
+    reverse(arr,arr+n);
+    for (int x :arr)
+    {
+       cout << x << " "; 
+    }
+    cout << endl;
+
+
+
+    //Vector
+    cout << "Vector sort" << endl;
+    vector<int>arrV = {10,9,8,6,5,4,3,2,11,16,8};
+    sort(arrV.begin(), arrV.end(),Compare);
+    for (int j :arrV)
+    {
+        cout << j << " "; 
+    }
+    cout << endl;
+    reverse(arrV.begin(), arrV.end());
+    for (int j :arrV)
+    {
+        cout << j << " "; 
+    }
+    
+
     return 0;
 }
+//-------------------------------------------------------------
+
+void CountingSortCode(vector<int> &arr)
+{
+    //largest element
+    int Largest = -1;
+    for (int i=0;i<arr.size();i++)
+    {
+        Largest = max(Largest,arr[i]);
+    }
+    //create a count array/vector
+    vector<int> freq(Largest+1,0);
+
+    //Update the freq array/vector  TimeComplexity O(n);
+   for (int i =0;i<arr.size();i++)
+   {
+       freq[arr[i]]++;
+   }
+
+    //put back the elements from freq into the original array TimeComplexity O(n+Range) that means it's a linear complexity;
+    int j = 0;
+    for (int i=0;i<=Largest; i++)
+    {
+        while (freq[i]>0)
+        {
+            arr[j] = i;
+            freq[i]--;
+            j++;
+        }
+        
+    }
+    
+}
+
+int CountingSortCodeMain()
+{
+
+    vector<int> arr = {88,97,10,12,15,1,5,6,12,5,8};
+
+
+    CountingSortCode(arr);
+
+    for (int i = 0; i < arr.size(); i++)
+    {
+        cout << arr[i] << " ";
+    }
+    return 0;
+}
+
+
+
 
 
 //CODING EXERCISES E=exercise<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -644,3 +736,57 @@ int KRotationMainE()
 }
 
 //-------------------------------------------------------------
+//Coding Exercise7: Sorting With Comparatir ->CheckBubbleSOrt
+//-------------------------------------------------------------
+//Coding Exercise8: Sorting Cartesian Points
+
+void SortingCartesianPointsE( vector<pair<int,int>> &arr,int N)
+{
+
+
+    
+}
+
+int SortingCartesianPointsMainE()
+{
+    vector<pair<int,int>> arr = {{3,4},{2,3},{3,7},{1,5},{3,4}};
+
+    int N = arr.size();
+
+   // SortingCartesianPointsE(arr,N);
+
+
+    for (int i=0;i<N;i++)
+    {
+    cout << "X:"<< arr[i].first << "," <<"Y:" <<arr[i].second  << endl;
+        
+    }
+  
+    return 0 ;
+}
+int main()
+{
+    //ArrayFunctionMain();
+    //LinearSearchMain();
+    //BinarySearchMain();
+    //ArrayReverseMain();
+    //PrintAllPairsMain();
+    //PrintSubArraysMain();
+    //PrintSubArrayMainOptimized();
+    //BubbleSortMain();
+    //insertSortMain();
+    //selectionSortMain();
+    //InbuiltSortAndComparatorsMain();
+    //CountingSortCodeMain();
+
+    
+    //CODING EXERCISES E=exercise--------
+    //MaximumSubArraySumMain();
+    //largestElementMainE();
+    //MaximumSubarraySumMainE();
+    //LowerBoundMainE();
+    //SortedPairSumMainE();
+    //KRotationMainE();
+    SortingCartesianPointsMainE();
+    return 0;
+}
