@@ -740,20 +740,26 @@ int KRotationMainE()
 //-------------------------------------------------------------
 //Coding Exercise8: Sorting Cartesian Points
 
+static bool comparator(pair<int,int> &p1, pair<int,int> &p2) {
+    
+   
+    if (p1.first == p2.first)
+    {
+        return p1.second > p2.second;
+    }
+    return p1.first > p2.first;
+} 
 void SortingCartesianPointsE( vector<pair<int,int>> &arr,int N)
 {
-
-
-    
+    sort(arr.begin(),arr.end(), comparator);
 }
-
 int SortingCartesianPointsMainE()
 {
-    vector<pair<int,int>> arr = {{3,4},{2,3},{3,7},{1,5},{3,4}};
+    vector<pair<int,int>> arr = {{3,1},{2,3},{3,7},{1,5},{3,4}};
 
     int N = arr.size();
 
-   // SortingCartesianPointsE(arr,N);
+   SortingCartesianPointsE(arr,N);
 
 
     for (int i=0;i<N;i++)
@@ -764,6 +770,41 @@ int SortingCartesianPointsMainE()
   
     return 0 ;
 }
+//-------------------------------------------------------------
+//Coding Exercise9: Chopsticks???
+void Chopsticks(vector<int> &arr,int x)
+{
+    int NumberOfPairs = 0;
+
+    sort(arr.begin(),arr.end());
+    
+    for (int i = 0;i<arr.size()-1;i++)
+    {
+        if (arr[i+1]-arr[i]<=x)
+        {
+           
+            NumberOfPairs++;
+            i++;
+        }
+    }
+        cout << NumberOfPairs;
+}
+
+int ChopsticksMain()
+{
+vector<int> arr = {1,3,3,9,4,8,20,21};
+   int x = 2;
+    
+
+    Chopsticks(arr,x);
+
+
+    
+    return 0;
+}
+
+
+
 int main()
 {
     //ArrayFunctionMain();
@@ -787,6 +828,7 @@ int main()
     //LowerBoundMainE();
     //SortedPairSumMainE();
     //KRotationMainE();
-    SortingCartesianPointsMainE();
+    //SortingCartesianPointsMainE();
+    ChopsticksMain();
     return 0;
 }
