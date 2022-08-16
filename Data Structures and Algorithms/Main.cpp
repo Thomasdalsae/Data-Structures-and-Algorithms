@@ -1,4 +1,5 @@
 #include <complex.h>
+#include <map>
 
 #include"Header.h"
 
@@ -789,7 +790,6 @@ void Chopsticks(vector<int> &arr,int x)
     }
         cout << NumberOfPairs;
 }
-
 int ChopsticksMain()
 {
 vector<int> arr = {1,3,3,9,4,8,20,21};
@@ -802,8 +802,53 @@ vector<int> arr = {1,3,3,9,4,8,20,21};
     
     return 0;
 }
+//-------------------------------------------------------------
+//Coding Exercise9: Defense Kingdom???
+void DefenseKingdomMap(int W,int H,vector<pair<int,int>> Tower)
+{
+   
+    
+    for (int i = 0; i <H;i++)
+    {
+        
+        for (int j = 0; j<W ;j++)
+        {
+            
+            // if (Map[i,j]  == Tower[i,j])
+            // {
+            //     cout<<"|" << "X" ;
+            // }
+            
+            {
+            cout<<"|" << " " ;
+            }
+        }
+        cout<< "|" << " " << "|"<<endl;
+    }
+}
+
+void DefenseKingdom(int W, int H, vector<pair<int, int>> position)
+{
+
+int CellsOpen = 0;
+   
+   
 
 
+    
+}
+
+int DefenseKingdomMain()
+{
+vector<pair<int,int>> arr {{3, 8},{11, 2}, {8, 6}};
+    int W = 15;
+    int H = 8;
+
+    DefenseKingdomMap(W,H,arr);
+    DefenseKingdom(W,H,arr);
+
+    return 0;
+}
 
 int main()
 {
@@ -829,6 +874,7 @@ int main()
     //SortedPairSumMainE();
     //KRotationMainE();
     //SortingCartesianPointsMainE();
-    ChopsticksMain();
+    //ChopsticksMain();
+    DefenseKingdomMain();
     return 0;
 }
