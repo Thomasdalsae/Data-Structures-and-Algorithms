@@ -873,8 +873,8 @@ int main()
     //LowerBoundMainE();
     //SortedPairSumMainE();
     //KRotationMainE();
-    //SortingCartesianPointsMainE();
+    SortingCartesianPointsMainE();
     //ChopsticksMain();
-    DefenseKingdomMain();
+    //DefenseKingdomMain();
     return 0;
 }

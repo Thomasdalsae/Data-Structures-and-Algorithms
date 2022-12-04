@@ -4,7 +4,10 @@
     <projectFile>Data Structures and Algorithms/Data Structures and Algorithms.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fba4bc6-4728-455e-882c-7acb10f7c52f" name="Changes" comment="" />
+    <list default="true" id="2fba4bc6-4728-455e-882c-7acb10f7c52f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Data Structures and Algorithms/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Data Structures and Algorithms/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data Structures and Algorithms/Main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Data Structures and Algorithms/Main.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,6 +103,10 @@
       <workItem from="1656675309524" duration="10730000" />
       <workItem from="1660583600370" duration="8459000" />
       <workItem from="1660662585169" duration="6752000" />
+      <workItem from="1661186824675" duration="5482000" />
+      <workItem from="1661278530580" duration="2092000" />
+      <workItem from="1661637811546" duration="3041000" />
+      <workItem from="1661717037910" duration="4403000" />
     </task>
     <servers />
   </component>
